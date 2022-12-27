@@ -1,3 +1,4 @@
+--Eddie's CMDS MMD
 local gettext = require("i_18n")
 _ = gettext.translate
 
@@ -18,15 +19,13 @@ ProgramNames =
 	AUTO_1 = counter(),
 	AUTO_2 = counter(),
 	AUTO_3 = counter(),
-	AUTO_4 = counter(),
-	AUTO_5 = counter(),
-	AUTO_6 = counter(),
+	BYP = 27,
 }
 
 programs = {}
 
 -- Default manual presets
--- MAN 1: RF AAM/Old generation RF SAM
+-- MAN 1 - Old SAM
 programs[ProgramNames.MAN_1] = {
 	chaff = {
 		burstQty 	= 2,
@@ -36,13 +35,13 @@ programs[ProgramNames.MAN_1] = {
 	},
 	flare = {
 		burstQty	= 0,
-		burstIntv	= 0.000,
+		burstIntv	= 0.00,
 		salvoQty	= 0,
-		salvoIntv	= 0.000,
+		salvoIntv	= 0.0,
 	},
 }
 
--- MAN 2: New generation RF SAM
+-- MAN 2 - Modern SAM
 programs[ProgramNames.MAN_2] = {
 	chaff = {
 		burstQty 	= 3,
@@ -52,35 +51,35 @@ programs[ProgramNames.MAN_2] = {
 	},
 	flare = {
 		burstQty	= 0,
-		burstIntv	= 0.000,
+		burstIntv	= 0.0,
 		salvoQty	= 0,
-		salvoIntv	= 0.000,
+		salvoIntv	= 0.0,
 	},
 }
 
--- MAN 3: Air-to-Air Merge
+-- MAN 3 AA Merge
 programs[ProgramNames.MAN_3] = {
 	chaff = {
 		burstQty 	= 2,
 		burstIntv	= 0.150,
 		salvoQty	= 3,
-		salvoIntv	= 0.500
+		salvoIntv	= 0.50,
 	},
 	flare = {
-		burstQty 	= 2,
+		burstQty	= 2,
 		burstIntv	= 0.150,
 		salvoQty	= 3,
-		salvoIntv	= 0.500
+		salvoIntv	= 0.50,
 	},
 }
 
--- MAN 4: IR Pre-Empt
+-- MAN 4 - IR Pre-empt
 programs[ProgramNames.MAN_4] = {
 	chaff = {
-		burstQty	= 0,
-		burstIntv	= 0.000,
+		burstQty 	= 0,
+		burstIntv	= 0.0,
 		salvoQty	= 0,
-		salvoIntv	= 0.000,
+		salvoIntv	= 0.0,
 	},
 	flare = {
 		burstQty	= 2,
@@ -90,23 +89,23 @@ programs[ProgramNames.MAN_4] = {
 	},
 }
 
--- MAN Slap Switch Program: Unknown AAM/SAM
+-- MAN 5 - Wall Dispense button, Panic
 programs[ProgramNames.MAN_5] = {
 	chaff = {
-		burstQty 	= 3,
+		burstQty 	= 2,
 		burstIntv	= 0.150,
 		salvoQty	= 3,
-		salvoIntv	= 0.750,
+		salvoIntv	= 0.75,
 	},
 	flare = {
 		burstQty	= 2,
 		burstIntv	= 0.300,
 		salvoQty	= 3,
-		salvoIntv	= 0.750,
+		salvoIntv	= 0.75,
 	},
 }
 
--- CMS Left - IR AAM/SAM
+-- MAN 6 - CMS LEFT - IR AAM/SAM
 programs[ProgramNames.MAN_6] = {
 	chaff = {
 		burstQty 	= 0,
@@ -123,40 +122,56 @@ programs[ProgramNames.MAN_6] = {
 }
 
 -- Auto presets
--- Old generation radar SAM
+-- Threat type 1
 programs[ProgramNames.AUTO_1] = {
 	chaff = {
 		burstQty 	= 1,
 		burstIntv	= 0.02,
-		salvoQty	= 1,
-		salvoIntv	= 0.5,
+		salvoQty	= 4,
+		salvoIntv	= 1.5,
 	},
 	flare = {
-		burstQty	= 1,
-		burstIntv	= 0.02,
-		salvoQty	= 1,
-		salvoIntv	= 0.5,
+		burstQty	= 0,
+		burstIntv	= 0,
+		salvoQty	= 0,
+		salvoIntv	= 0,
 	},
 }
 
--- Current generation radar SAM
+-- Threat type 2
 programs[ProgramNames.AUTO_2] = {
 	chaff = {
 		burstQty 	= 1,
-		burstIntv	= 0.02,
-		salvoQty	= 1,
-		salvoIntv	= 0.5,
+		burstIntv	= 0.250,
+		salvoQty	= 6,
+		salvoIntv	= 1,
 	},
 	flare = {
-		burstQty	= 1,
-		burstIntv	= 0.02,
-		salvoQty	= 1,
-		salvoIntv	= 0.5,
+		burstQty	= 0,
+		burstIntv	= 0,
+		salvoQty	= 0,
+		salvoIntv	= 0,
 	},
 }
 
--- IR SAM
+-- Threat type 3
 programs[ProgramNames.AUTO_3] = {
+	chaff = {
+		burstQty 	= 1,
+		burstIntv	= 0.250,
+		salvoQty	= 8,
+		salvoIntv	= 0.5,
+	},
+	flare = {
+		burstQty	= 0,
+		burstIntv	= 0,
+		salvoQty	= 0,
+		salvoIntv	= 0,
+	},
+}
+
+-- BYPASS
+programs[ProgramNames.BYP] = {
 	chaff = {
 		burstQty 	= 1,
 		burstIntv	= 0.02,
